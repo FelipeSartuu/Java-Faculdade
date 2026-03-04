@@ -9,6 +9,7 @@ public class SenhaAtendimento {
         this.paciente = paciente;
         this.senha = controle;
         controle++;
+
     }
 
     public String pegarDados() {
