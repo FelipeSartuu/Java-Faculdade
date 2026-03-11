@@ -3,33 +3,35 @@ package Exercicio03;
 import java.util.Random;
 
 public class BilheteUnico {
+
     int numero;
     String usuario;
     double saldo;
+    final static double valorBase=5.50;
     String tipoTarifa;
-    final static double tarifa = 5.50;
 
-    public BilheteUnico(String usuario, String tipoTarifa) {
-       Random rd = new Random();
-       this.numero = rd.nextInt(1000, 9999);
-       this.usuario = usuario;
-       this.tipoTarifa = tipoTarifa;
-       this.saldo = 0;
+
+    public BilheteUnico(String usuario,String tipoTarifa){
+        Random rd= new Random(10000);
+
+        this.numero = rd.nextInt(0, 999999);
+        this.usuario=usuario;
+        this.tipoTarifa=tipoTarifa;
+        this. saldo= saldo;
     }
 
-    public void passarNaCatraca() {
-        double valor = tarifa;
-
-        if (tipoTarifa.equalsIgnoreCase("professor") || tipoTarifa.equalsIgnoreCase("estudante")) {
-            valor = tarifa / 2;
+    public boolean passarNaCatraca(){
+        double valor= valorBase;
+        if (tipoTarifa.equalsIgnoreCase("professor") || tipoTarifa.equalsIgnoreCase("estudante")){
+            valor=valorBase/2;
+        }
+        if (saldo < valor){
+            return false;
         }
 
-        if (saldo < valor) {
-            return;
-        }
-
-        saldo -= valor;
-
+        saldo-=valor;
+        return true;
 
     }
+
 }
